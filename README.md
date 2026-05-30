@@ -186,5 +186,3 @@ Ctrl + C
 ## 👩‍💻 Author
 
 **Manpreet Saini**
-
-Built for the Purple Merit Store Intelligence Challenge.
