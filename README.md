@@ -1,130 +1,145 @@
-# 🏬 Store Intelligence System
+# 🏬 RetailLens – AI Powered Store Intelligence
 
-## 📌 Overview
-This system processes CCTV footage to detect customer movement and generate real-time analytics for retail stores. It simulates a production-like pipeline where events are generated from video streams and consumed by a FastAPI backend to compute insights such as visitor counts, conversion rates, funnels, and anomalies.
+## 📖 Overview
 
----
+RetailLens is a real-time retail analytics platform designed to transform customer movement data into actionable business insights.
 
-## 🚀 Features
-- 🎯 YOLOv8-based person detection
-- 🚪 Entry & Exit tracking
-- 🔄 Event generation (JSONL format)
-- ⚡ FastAPI backend for real-time analytics
-- 📊 Metrics computation (visitors, conversion rate)
-- 🔽 Funnel analysis (entry → exit)
-- 📍 Heatmap-ready event structure
-- 🚨 Anomaly detection (dead zones, unusual patterns)
-- 🐳 Dockerized deployment
+The system simulates CCTV-based visitor tracking, processes customer events through a FastAPI backend, and visualizes live store performance using an interactive Streamlit dashboard.
 
+It demonstrates how retailers can monitor customer flow, analyze visitor behavior, and generate operational intelligence through an event-driven architecture.
 
 ---
 
-## 🎥 Demo Videos
-👉 Click below to watch full working demo:
+## ✨ Features
+
+- 🎯 Customer Entry & Exit Tracking
+- ⚡ Real-Time Event Ingestion API
+- 📊 Live Analytics Dashboard
+- 📈 Visitor Traffic Metrics
+- 🔄 Event Simulator for Continuous Data Generation
+- 🧮 Conversion & Funnel Analytics
+- 🚨 Anomaly Detection Support
+- 🐳 Dockerized Deployment
+- 🌐 Cloud Deployment on Render
+
+---
+
+## 📸 Dashboard Preview
+
+### Live Analytics Dashboard
+
+![Dashboard](dashboard.png)
+
+### Metrics API Output
+
+![Metrics](metrics.png)
+
+---
+
+## 🎥 Demo Video
+
+Watch the complete working demonstration here:
 
 https://drive.google.com/drive/folders/1ZsEuXyD-fT6CuNzzlO9SXphI1_fzamyU?usp=drive_link
 
 ---
 
-## ⚙️ Run Pipeline
-```bash
-python pipeline/detect.py
-```
-## Run API
+## ⚙️ Running the Backend
+
+Start the FastAPI server:
+
 ```bash
 uvicorn app.main:app --reload
-API will be available at http://127.0.0.1:8000/docs
 ```
-## project structure
+
+Backend URL:
+
+```text
+http://127.0.0.1:8000
 ```
-/store-intelligence/
-├── pipeline/
-│   ├── detect.py          # Main detection + tracking script
-│   ├── tracker.py         # Re-ID / tracking logic
-│   ├── emit.py            # Event schema + emission
-│   └── run.sh             # Process all videos → events
-│
-├── app/
-│   ├── main.py            # FastAPI entrypoint
-│   ├── models.py          # Pydantic schemas
-│   ├── ingestion.py       # Event ingestion + deduplication
-│   ├── metrics.py         # Metric computations
-│   ├── funnel.py          # Funnel logic
-│   ├── anomalies.py       # Anomaly detection logic
-│   └── health.py          # Health endpoint
-│
-├── tests/
-│   ├── test_pipeline.py
-│   ├── test_metrics.py
-│   └── test_anomalies.py
-│
-├── docs/
-│   ├── DESIGN.md          # Architecture + AI decisions
-│   └── CHOICES.md         # Key design choices
-│
-├── docker-compose.yml     # Container setup
-└── README.md
+
+Swagger Documentation:
+
+```text
+http://127.0.0.1:8000/docs
 ```
-## Run simulator (generate events)
-```
+
+---
+
+## 📡 Generate Sample Events
+
+Run the simulator to continuously generate customer movement events:
+
+```bash
 python simulator.py
 ```
-##  Run dashboard (live metrics)
-```
-python dashboard.py
-```
-## 🌐 Live API (Deployed)
 
-👉 Access the deployed API here:
+---
+
+## 📊 Launch Live Dashboard
+
+Start the Streamlit dashboard:
+
+```bash
+streamlit run streamlit_dashboard.py
+```
+
+Dashboard URL:
+
+```text
+http://localhost:8501
+```
+
+---
+
+## 🌍 Live Deployment
+
+### Production API
 
 https://store-intelligence-j9m8.onrender.com
 
-👉 Swagger UI (Test all APIs):
+### Swagger UI
 
 https://store-intelligence-j9m8.onrender.com/docs
 
-## 🐳 Docker Setup (Evaluation Requirement)
-
-This project is fully containerized using Docker.
-The API can be started with a single command.
-
 ---
 
-### 🔧 Prerequisites
+## 🏗️ Project Structure
 
-* Install Docker Desktop
-* Ensure Docker is running
-
----
-
-### ▶️ Run the Application
-
-```bash
-docker compose up --build
+```text
+store-intelligence/
+│
+├── app/
+│   ├── main.py
+│   ├── ingestion.py
+│   ├── metrics.py
+│   ├── funnel.py
+│   ├── anomalies.py
+│   ├── health.py
+│   └── models.py
+│
+├── pipeline/
+│
+├── tests/
+│
+├── docs/
+│
+├── simulator.py
+├── streamlit_dashboard.py
+├── docker-compose.yml
+├── requirements.txt
+├── dashboard.png
+├── metrics.png
+└── README.md
 ```
 
 ---
 
-### 🌐 Access the API
+## 🧪 Sample Event
 
-After the container starts, open:
+Use the following payload to test the API:
 
-```id="a1"
-http://localhost:8000/docs
-```
-
-👉 This will open Swagger UI where all APIs can be tested.
-
----
-
-### 🧪 Test the API
-
-1. Open `/docs`
-2. Use **POST /add-event**
-
-Example:
-
-```json id="a2"
+```json
 {
   "store_id": "STORE_001",
   "camera_id": "CAM_1",
@@ -133,29 +148,55 @@ Example:
 }
 ```
 
-3. Check results in:
-
-* `/metrics`
-* `/funnel`
-
 ---
 
-### 🛑 Stop the Application
+## 🐳 Docker Setup
 
-Press:
+### Build & Run
 
-```bash id="a3"
+```bash
+docker compose up --build
+```
+
+### Access Swagger
+
+```text
+http://localhost:8000/docs
+```
+
+### Stop Containers
+
+```bash
 Ctrl + C
 ```
 
 ---
 
-### 📌 Notes
+## 📌 Technology Stack
 
-* No manual setup required
-* All dependencies are installed inside the container
-* The system is fully reproducible using Docker
-* Verified locally using `docker compose up --build`
+- Python
+- FastAPI
+- Streamlit
+- Docker
+- YOLOv8
+- REST APIs
+- Render
 
 ---
 
+## 🚀 Future Enhancements
+
+- Store Heatmap Visualization
+- Multi-Store Analytics Dashboard
+- Dwell-Time Tracking
+- Real-Time CCTV Stream Integration
+- Advanced Anomaly Detection
+- Predictive Retail Insights
+
+---
+
+## 👩‍💻 Author
+
+**Manpreet Saini**
+
+Built for the Purple Merit Store Intelligence Challenge.
