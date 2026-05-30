@@ -92,18 +92,6 @@ http://localhost:8501
 
 ---
 
-## 🌍 Live Deployment
-
-### Production API
-
-https://store-intelligence-j9m8.onrender.com
-
-### Swagger UI
-
-https://store-intelligence-j9m8.onrender.com/docs
-
----
-
 ## 🏗️ Project Structure
 
 ```text
