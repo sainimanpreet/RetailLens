@@ -40,7 +40,7 @@ It demonstrates how retailers can monitor customer flow, analyze visitor behavio
 
 Watch the complete working demonstration here:
 
-https://drive.google.com/drive/folders/1ZsEuXyD-fT6CuNzzlO9SXphI1_fzamyU?usp=drive_link
+https://drive.google.com/drive/folders/1L_4cy9j8hAfzLq0vpgrlgaWW1HZAa_xU?usp=drive_link
 
 ---
 
