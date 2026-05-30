@@ -43,7 +43,7 @@ This improves scalability and maintainability.
 
 # 🧠 CHOICES.md — Key Design Decisions
 
-This document explains important design decisions made during the development of the **Store Intelligence System**, including alternatives considered and final justifications.
+This document explains important design decisions made during the development of the **RetailLens System**, including alternatives considered and final justifications.
 
 ---
 

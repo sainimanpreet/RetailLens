@@ -5,7 +5,7 @@ app = FastAPI()
 
 @app.get("/")
 def home():
-    return {"message": "Store Intelligence API running"}
+    return {"message": "RetailLens API running"}
 
 @app.get("/events")
 def get_events():

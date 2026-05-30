@@ -1,4 +1,4 @@
-# 🏬 Store Intelligence System — Design
+# 🏬 RetailLens System — Design
 
 ---
 

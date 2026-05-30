@@ -1,4 +1,4 @@
-# 🏬 RetailLens – AI Powered Store Intelligence
+# 🏬 RetailLens – AI Powered RetailLens
 
 ## 📖 Overview
 
